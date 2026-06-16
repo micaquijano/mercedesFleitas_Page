@@ -1,0 +1,15 @@
+<p>catalog works!</p>
+<section class="catalog-container">
+  <h2 class="section-title">Featured Couture Dresses</h2>
+
+  <div class="catalog-grid">
+    @for (dress of dresses(); track dress.id) {
+      <app-ui-product-card
+        [product]="dress"
+        (viewDetails)="navigateToProduct($any($event))">
+      </app-ui-product-card>
+    } @empty {
+      <p class="empty-message">No se encontraron vestidos en esta colección.</p>
+    }
+  </div>
+</section>

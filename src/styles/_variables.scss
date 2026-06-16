@@ -1,0 +1,23 @@
+// Colores Premium
+   $color-bg-dark: #0a0a0a;
+   $color-surface: #121212;
+   $color-gold-primary: #af9557;
+   $color-gold-light: #d4af37;
+   $color-text-light: #ffffff;
+   $color-text-muted: #a0a0a0;
+
+   // Tipografías
+   $font-editorial: 'Playfair Display', 'Didot', serif;
+   $font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+
+   // Breakpoints Responsivos
+   $breakpoint-mobile: 576px;
+   $breakpoint-tablet: 768px;
+   $breakpoint-desktop: 1024px;
+
+   // Mixin para Media Queries
+   @mixin respond-to($breakpoint) {
+     @media (min-width: $breakpoint) {
+       @content;
+     }
+   }
