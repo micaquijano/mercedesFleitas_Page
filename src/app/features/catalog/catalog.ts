@@ -24,21 +24,21 @@ export class Catalog {
       name: 'ELARA',
       collection: 'Nocturne Collection',
       price: 2400,
-      imageUrl: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=600'
+      imageUrl: '/images/Aurora.png'
     },
     {
       id: '2',
       name: 'SERAPHINA',
       collection: 'Nocturne Collection',
       price: 3100,
-      imageUrl: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600'
+      imageUrl: '/images/Amelie.png'
     },
     {
       id: '3',
       name: 'ODETTE',
       collection: 'Atelier 2026',
       price: 4200,
-      imageUrl: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=600'
+      imageUrl: '/images/Victoria.png'
     }
   ]);
 

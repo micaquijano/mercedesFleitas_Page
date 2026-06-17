@@ -1,20 +1,23 @@
 .catalog-container {
-  padding: 40px 20px;
-  max-width: 1200px;
+  padding: 60px 40px; // Más espacio arriba y abajo para dar aire editorial
+  max-width: 1400px; // <-- CAMBIAMOS A 1400PX para darle pista a las tarjetas gigantes
   margin: 0 auto;
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif; // O la tipografía elegante que prefieras
-  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; // Título un poco más grande para equilibrar todo el diseño
   font-weight: 300;
-  letter-spacing: 3px;
-  margin-bottom: 30px;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px; // Espaciado elegante entre tarjetas
+  // Permitimos que la columna se estire hasta los 400px antes de saltar de fila
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 40px; // Buen espacio entre ellas
+  justify-items: center;
 }
