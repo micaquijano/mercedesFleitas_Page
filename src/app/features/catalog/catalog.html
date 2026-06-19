@@ -1,13 +1,49 @@
-<p>catalog works!</p>
-<section class="catalog-container">
-  <h2 class="section-title">Featured Couture Dresses</h2>
+<!-- Slider Editorial Superior -->
+<section class="hero-slider">
+  @for (slide of heroSlides(); track slide; let i = $index) {
+    <div class="slide-split" [class.active]="currentSlide() === i">
 
-  <div class="catalog-grid">
-  @for (dress of dresses(); track dress.id) {
-    <app-ui-product-card
-      [product]="dress"
-      (click)="navigateToProduct(dress.id)">
-    </app-ui-product-card>
+      <!-- Lado Izquierdo: Textos y Botón -->
+      <div class="slide-text-side">
+        <div class="text-content">
+          <span class="slide-subtitle">{{ slide.subtitle }}</span>
+          <h1 class="slide-title">{{ slide.title }}</h1>
+          <p class="slide-description">{{ slide.description }}</p>
+          <button class="slide-btn" (click)="navigateToProduct(slide.productId)">Ver Diseño</button>
+        </div>
+      </div>
+
+      <!-- Lado Derecho: Imagen de Campaña -->
+      <div class="slide-image-side">
+        <img [src]="slide.imageUrl" [alt]="slide.title" class="slide-img">
+      </div>
+
+    </div>
   }
-</div>
+
+  <!-- Flechas Minimalistas en los extremos -->
+  <button class="slider-arrow prev-arrow" (click)="prevSlide()" aria-label="Anterior">&#8212;</button>
+  <button class="slider-arrow next-arrow" (click)="nextSlide()" aria-label="Siguiente">&#8212;</button>
+
+  <!-- Indicadores Lineales de alta gama -->
+  <div class="slider-indicators">
+    @for (slide of heroSlides(); track slide; let i = $index) {
+      <span class="line-dot" [class.active]="currentSlide() === i" (click)="currentSlide.set(i)"></span>
+    }
+  </div>
 </section>
+
+<!-- Título de tu Catálogo Actual -->
+<h2 class="section-title">Colección Eterna 2026</h2>
+
+<!-- Grilla de Productos Actual -->
+<div class="catalog-container">
+  <div class="catalog-grid">
+    @for (dress of dresses(); track dress.id) {
+      <app-ui-product-card
+        [product]="dress"
+        (click)="navigateToProduct(dress.id)">
+      </app-ui-product-card>
+    }
+  </div>
+</div>

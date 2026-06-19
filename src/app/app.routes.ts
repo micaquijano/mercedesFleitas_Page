@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '', // Cuando la URL esté vacía...
-    redirectTo: 'catalog', // ...redirigir automáticamente al catálogo
+    path: '',
+    redirectTo: 'catalog',
     pathMatch: 'full'
   },
   {
@@ -12,7 +12,8 @@ export const routes: Routes = [
   },
   {
     path: 'product/:id',
-    loadComponent: () => import('./features/product-detail/product-detail').then(m => m.ProductDetail)
+    // Apunta al archivo .component e invoca a ProductDetailComponent
+    loadComponent: () => import('./features/product-detail/product-detail').then(m => m.ProductDetailComponent)
   },
   {
     path: '**',

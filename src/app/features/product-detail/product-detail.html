@@ -1,1 +1,48 @@
-<p>product-detail works!</p>
+@if (product()) {
+  <div class="detail-container">
+    <div class="image-gallery">
+      <img [src]="product()?.imageUrl" [alt]="product()?.name" class="main-image">
+    </div>
+
+    <div class="info-sidebar">
+      <a routerLink="/catalog" class="back-link">← Volver al catálogo</a>
+
+      <header class="product-header">
+        <span class="collection-tag">{{ product()?.collection }}</span>
+        <h1 class="dress-title">{{ product()?.name }}</h1>
+        <p class="dress-price">${{ product()?.price }}</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <section class="description-section">
+        <p class="description-text">{{ product()?.description }}</p>
+      </section>
+
+      <section class="specs-section">
+        <h3>Materiales Selección</h3>
+        <ul>
+          @for (fabric of product()?.fabrics; track fabric) {
+            <li>{{ fabric }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="specs-section">
+        <h3>Detalles de Confección</h3>
+        <ul>
+          @for (detail of product()?.details; track detail) {
+            <li>{{ detail }}</li>
+          }
+        </ul>
+      </section>
+
+      <button class="action-btn">Agendar Cita en el Taller</button>
+    </div>
+  </div>
+} @else {
+  <div class="not-found">
+    <h2>Diseño exclusivo no encontrado</h2>
+    <a routerLink="/catalog">Volver al catálogo de colecciones</a>
+  </div>
+}
