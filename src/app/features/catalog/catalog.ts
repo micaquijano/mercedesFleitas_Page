@@ -27,7 +27,7 @@ export class Catalog {
       title: 'NOCTURNE',
       subtitle: 'COLECCIÓN EXCLUSIVA 2026',
       description: 'Siluetas esculturales y romanticismo oscuro, diseñadas para envolver la figura con gracia dramática.',
-      imageUrl: '/images/slider.png', // Podés usar la misma imagen o una de campaña de Elara
+      imageUrl: '/images/Banner.png',
       productId: '1'
     },
     {
