@@ -2,15 +2,15 @@ $color-gold-mate: #b59a57;
 $font-editorial: 'Playfair Display', serif;
 
 // ==========================================================================
-// ESTILOS DEL SLIDER (AGRANDADO A UN PUNTO MEDIO PERFECTO)
+// ESTILOS DEL SLIDER (IMPACTO FULL SCREEN - TOTALMENTE ENCUADRADO)
 // ==========================================================================
 .hero-slider {
   position: relative;
   width: 100%;
-  height: 520px; // <-- Subido a 520px para que tenga presencia editorial sin devorarse la grilla
+  height: calc(100vh - 80px); // Resta milimétricamente el header de desktop
   background: #000000;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   border-bottom: 1px solid #111111;
 
   .slide-split {
@@ -22,7 +22,7 @@ $font-editorial: 'Playfair Display', serif;
     display: flex;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.8s ease, visibility 0.8s;
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), visibility 1s;
     z-index: 1;
 
     &.active {
@@ -32,52 +32,52 @@ $font-editorial: 'Playfair Display', serif;
     }
   }
 
-  // Mitad Izquierda: Textos de campaña con más aire
+  // Mitad Izquierda: Textografía de Alta Costura
   .slide-text-side {
     width: 50%;
     height: 100%;
     background: #000000;
     display: flex;
     align-items: center;
-    padding: 0 8%;
+    padding: 0 10%;
     box-sizing: border-box;
 
     .text-content {
-      max-width: 460px; // Un poco más amplio para acompañar la altura
+      max-width: 500px;
     }
 
     .slide-subtitle {
-      font-size: 0.7rem; // Sutilmente más visible
-      letter-spacing: 3px;
+      font-size: 0.75rem;
+      letter-spacing: 4px;
       color: $color-gold-mate;
       text-transform: uppercase;
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     .slide-title {
       font-family: $font-editorial;
-      font-size: 3rem; // Volvemos a un tamaño imponente y dramático
+      font-size: 3.8rem;
       font-weight: 300;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       color: #ffffff;
-      margin: 0 0 16px 0;
+      margin: 0 0 20px 0;
     }
 
     .slide-description {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: #777777; // Un gris que se lee perfectamente sobre el fondo negro
-      margin-bottom: 28px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #888888;
+      margin-bottom: 35px;
       font-weight: 300;
     }
 
     .slide-btn {
       background: transparent;
       color: #ffffff;
-      border: 1px solid #444444;
-      padding: 10px 35px;
-      font-size: 0.75rem;
+      border: 1px solid #ffffff;
+      padding: 12px 40px;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       cursor: pointer;
@@ -85,14 +85,13 @@ $font-editorial: 'Playfair Display', serif;
       transition: all 0.3s ease;
 
       &:hover {
-        border-color: #ffffff;
         background: #ffffff;
         color: #000000;
       }
     }
   }
 
-  // Mitad Derecha: Mayor superficie para la fotografía
+  // Mitad Derecha: Despliegue fotográfico total
   .slide-image-side {
     width: 50%;
     height: 100%;
@@ -106,58 +105,88 @@ $font-editorial: 'Playfair Display', serif;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to right, #000000 0%, transparent 15%);
+      background: linear-gradient(to right, #000000 0%, transparent 20%);
     }
 
     .slide-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center top;
     }
   }
 
-  // Controles de guiones minimalistas
+  // Controles Horizontales de Guiones
   .slider-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.15);
-    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.8rem;
     cursor: pointer;
     z-index: 10;
     transition: color 0.3s;
 
     &:hover { color: $color-gold-mate; }
-    &.prev-arrow { left: 25px; }
-    &.next-arrow { right: 25px; }
+    &.prev-arrow { left: 40px; }
+    &.next-arrow { right: 40px; }
   }
 
-  // Indicadores sutiles alineados
+  // Indicadores de posición de las líneas
   .slider-indicators {
     position: absolute;
-    bottom: 35px;
-    left: 8%;
+    bottom: 50px;
+    left: 10%;
     display: flex;
-    gap: 10px;
+    gap: 12px;
     z-index: 10;
 
     .line-dot {
-      width: 35px;
+      width: 45px;
       height: 1px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.15);
       cursor: pointer;
       transition: background 0.3s;
 
       &.active { background: $color-gold-mate; }
     }
   }
+
+  // INDICADOR DE SCROLL ANIMADO (La "v" de image_6c3635.png)
+  .scroll-down-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+
+    .scroll-arrow {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+      border-right: 2px solid rgba(255, 255, 255, 0.6);
+      transform: rotate(45deg);
+      animation: bounceArrow 2s infinite;
+    }
+  }
+}
+
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+  40% { transform: translateY(-8px) rotate(45deg); }
+  60% { transform: translateY(-4px) rotate(45deg); }
 }
 
 // ==========================================================================
-// TUS ESTILOS ORIGINALES (MANTENIDOS INTACTOS)
+// TUS ESTILOS COMPORTAMIENTO DE GRILLA (CONSERVADOS)
 // ==========================================================================
 .catalog-container {
   padding: 60px 40px;
@@ -182,43 +211,33 @@ $font-editorial: 'Playfair Display', serif;
   justify-items: center;
 }
 
-// Responsive adaptativo
-@media (max-width: 992px) {
+// Responsivo adaptativo para el Slider Pantalla Completa en Móviles
+@media (max-width: 1024px) {
   .hero-slider {
-    height: auto;
-    min-height: 400px;
+    height: calc(100vh - 65px); // Se sincroniza perfectamente con el breakpoint de tu app.scss
 
     .slide-split {
-      position: relative;
       flex-direction: column;
-      opacity: 1;
-      visibility: visible;
-      display: none;
-
-      &.active {
-        display: flex;
-      }
     }
 
     .slide-text-side {
       width: 100%;
-      height: auto;
-      padding: 30px 25px;
+      height: 50%;
+      padding: 40px 30px;
 
-      .slide-title { font-size: 2rem; }
+      .slide-title { font-size: 2.4rem; }
       .slide-description { display: none; }
     }
 
     .slide-image-side {
       width: 100%;
-      height: 250px;
-
+      height: 50%;
       &::after {
         background: linear-gradient(to bottom, #000000 0%, transparent 20%);
       }
     }
 
     .slider-arrow { display: none; }
-    .slider-indicators { left: 25px; bottom: 15px; }
+    .slider-indicators { left: 30px; bottom: 30px; }
   }
 }

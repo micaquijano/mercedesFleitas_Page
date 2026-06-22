@@ -31,6 +31,11 @@
       <span class="line-dot" [class.active]="currentSlide() === i" (click)="currentSlide.set(i)"></span>
     }
   </div>
+
+  <!-- ICONO DE SCROLL INFERIOR INTERACTIVO (Agregado para el salto suave) -->
+  <div class="scroll-down-indicator" (click)="scrollToCatalog()" aria-label="Ver Catálogo">
+    <span class="scroll-arrow"></span>
+  </div>
 </section>
 
 <!-- Título de tu Catálogo Actual -->
