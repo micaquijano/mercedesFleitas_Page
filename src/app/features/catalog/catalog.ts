@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
-import { UiProductCard } from '../../shared/components/ui-product-card/ui-product-card';
+import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';
 
+// Mantenemos tus interfaces existentes
 export interface Product {
   id: string;
   name: string;
@@ -12,71 +12,68 @@ export interface Product {
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [UiProductCard],
+  imports: [],
   templateUrl: './catalog.html',
   styleUrl: './catalog.scss'
 })
+
 export class Catalog implements OnInit, OnDestroy {
-  // 1. Control del Slider
-  currentSlide = signal<number>(0);
 
-  heroSlides = signal<any[]>([
-    { title: 'NOCTURNE', subtitle: 'COLECCIÓN EXCLUSIVA 2026', description: 'Siluetas escultóricas y romanticismo oscuro, diseñadas para envolver la figura con gracia dramática.', imageUrl: 'images/Aurora.png', productId: '1' },
-    { title: 'NOVIAS', subtitle: 'ALTA COSTURA', description: 'Diseños románticos y exclusivos hechos a medida.', imageUrl: 'images/Amelie.png', productId: '2' }
+  // 1. GESTIÓN DEL SLIDER EDITORIAL DE PANTALLA COMPLETA (Vertical)
+  // Rastrear qué gran sección (Novias, Quince, Fiesta) está visible.
+  currentEditorialSectionIndex = signal<number>(0);
+
+  // Definimos tus grandes secciones en un Signal para usar en el HTML
+  editorialSections = signal<any[]>([
+    { id: 'novias', title: 'Novias', imageUrl: 'images/BannerNovias.png' },
+    { id: 'quince', title: 'Quinceañeras', imageUrl: 'images/BannerQuinceañearas.png' },
+    { id: 'fiesta', title: 'Fiesta Collection', imageUrl: 'images/BannerVestidoFiesta.png' }
   ]);
 
-  // 2. LA SOLUCIÓN: Agregamos el Signal 'dresses' con datos de prueba iniciales para que el @for funcione
-  dresses = signal<Product[]>([
-    { id: '1', name: 'Vestido Nocturne', collection: 'Colección Eterna 2026', price: 120000, imageUrl: 'images/Aurora.png' },
-    { id: '2', name: 'Vestido Amelie', collection: 'Novias Alta Costura', price: 150000, imageUrl: 'images/Amelie.png' },
-    { id: '3', name: 'Vestido Victoria', collection: 'Colección Eterna 2026', price: 135000, imageUrl: 'images/Victoria.png' }
-  ]);
-
-  private autoPlayTimer: any;
+  // Guardamos la referencia del temporizador automático
+  private autoPlaySectionsTimer: any;
 
   ngOnInit(): void {
-    this.startAutoPlay();
+    this.startEditorialAutoPlay();
   }
 
   ngOnDestroy(): void {
-    this.stopAutoPlay();
+    this.stopEditorialAutoPlay();
   }
 
-  startAutoPlay(): void {
-    this.autoPlayTimer = setInterval(() => {
-      this.nextSlide();
-    }, 5000);
+  // --- CONTROL DEL AUTOMÁTICO ---
+  startEditorialAutoPlay(): void {
+    // Cambia automáticamente cada 6000 milisegundos (6 segundos)
+    this.autoPlaySectionsTimer = setInterval(() => {
+      this.goToNextEditorialSection();
+    }, 6000);
   }
 
-  stopAutoPlay(): void {
-    if (this.autoPlayTimer) {
-      clearInterval(this.autoPlayTimer);
+  stopEditorialAutoPlay(): void {
+    if (this.autoPlaySectionsTimer) {
+      clearInterval(this.autoPlaySectionsTimer);
     }
   }
 
-  nextSlide(): void {
-    const total = this.heroSlides().length;
-    if (total > 0) {
-      this.currentSlide.update(idx => (idx + 1) % total);
+  goToNextEditorialSection(): void {
+    const totalSections = this.editorialSections().length;
+    const currentIdx = this.currentEditorialSectionIndex();
+
+    if (currentIdx < totalSections - 1) {
+      this.currentEditorialSectionIndex.set(currentIdx + 1);
+    } else {
+      this.currentEditorialSectionIndex.set(0);
     }
   }
 
-  prevSlide(): void {
-    const total = this.heroSlides().length;
-    if (total > 0) {
-      this.currentSlide.update(idx => (idx - 1 + total) % total);
-    }
+  // Si el usuario hace click manualmente, reseteamos el tiempo para que no salte de golpe
+  onManualNavigation(): void {
+    this.goToNextEditorialSection();
+    this.stopEditorialAutoPlay();
+    this.startEditorialAutoPlay();
   }
 
-  scrollToCatalog(): void {
-    const sliderHeight = window.innerHeight - 80;
-    window.scrollTo({
-      top: sliderHeight,
-      behavior: 'smooth'
-    });
-  }
-
-  navigateToProduct(id: string): void {
-    console.log('Navegando al producto:', id);
+  openCollectionInNewTab(categoryUrl: string): void {
+    window.open(`/catalog?category=${categoryUrl}`, '_blank');
   }
 }
