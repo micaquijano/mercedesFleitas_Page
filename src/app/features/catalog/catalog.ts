@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { UiProductCard } from '../../shared/components/ui-product-card/ui-product-card';
 
-// Mantenemos tus interfaces existentes
 export interface Product {
   id: string;
   name: string;
@@ -12,25 +13,29 @@ export interface Product {
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, UiProductCard],
   templateUrl: './catalog.html',
   styleUrl: './catalog.scss'
 })
-
 export class Catalog implements OnInit, OnDestroy {
 
-  // 1. GESTIÓN DEL SLIDER EDITORIAL DE PANTALLA COMPLETA (Vertical)
-  // Rastrear qué gran sección (Novias, Quince, Fiesta) está visible.
+  // 1. GESTIÓN DEL SLIDER DE PANTALLA COMPLETA (Vertical)
   currentEditorialSectionIndex = signal<number>(0);
 
-  // Definimos tus grandes secciones en un Signal para usar en el HTML
+  // Tus imágenes y secciones originales se mantienen intactas
   editorialSections = signal<any[]>([
     { id: 'novias', title: 'Novias', imageUrl: 'images/BannerNovias.png' },
     { id: 'quince', title: 'Quinceañeras', imageUrl: 'images/BannerQuinceañearas.png' },
     { id: 'fiesta', title: 'Fiesta Collection', imageUrl: 'images/BannerVestidoFiesta.png' }
   ]);
 
-  // Guardamos la referencia del temporizador automático
+  //GRILLA DE PRODUCTOS Colección 2026
+  dresses = signal<Product[]>([
+    { id: '1', name: 'Vestido Aurora', collection: 'Colección Eterna 2026', price: 120000, imageUrl: 'images/VestidoAurora.png' },
+    { id: '2', name: 'Vestido Amelie', collection: 'Colección Eterna 2026', price: 150000, imageUrl: 'images/VestidoAmelie.png' },
+    { id: '3', name: 'Vestido Victoria', collection: 'Colección Eterna 2026', price: 135000, imageUrl: 'images/VestidoVictoria.png' }
+  ]);
+
   private autoPlaySectionsTimer: any;
 
   ngOnInit(): void {
@@ -43,7 +48,6 @@ export class Catalog implements OnInit, OnDestroy {
 
   // --- CONTROL DEL AUTOMÁTICO ---
   startEditorialAutoPlay(): void {
-    // Cambia automáticamente cada 6000 milisegundos (6 segundos)
     this.autoPlaySectionsTimer = setInterval(() => {
       this.goToNextEditorialSection();
     }, 6000);
@@ -66,7 +70,6 @@ export class Catalog implements OnInit, OnDestroy {
     }
   }
 
-  // Si el usuario hace click manualmente, reseteamos el tiempo para que no salte de golpe
   onManualNavigation(): void {
     this.goToNextEditorialSection();
     this.stopEditorialAutoPlay();
@@ -75,5 +78,10 @@ export class Catalog implements OnInit, OnDestroy {
 
   openCollectionInNewTab(categoryUrl: string): void {
     window.open(`/catalog?category=${categoryUrl}`, '_blank');
+  }
+
+
+  navigateToProduct(id: string): void {
+    console.log('Navegando al producto con ID:', id);
   }
 }

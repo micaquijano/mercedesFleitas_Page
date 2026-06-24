@@ -1,12 +1,19 @@
+<!-- ==========================================================================
+     1. CONTENEDOR MAESTRO DE SLIDER VERTICAL AUTOMÁTICO (Pantalla Completa)
+     ========================================================================== -->
 <div class="fullpage-editorial-slider-container">
+
+  <!-- Iteramos sobre las secciones (Novias, Quince, Fiesta) -->
   @for (section of editorialSections(); track section.id; let i = $index) {
+
     <section class="editorial-vertical-section"
              [class.section-visible]="currentEditorialSectionIndex() === i"
              [style.background-image]="'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(' + section.imageUrl + ')'">
 
-      <!-- Línea sofisticada de progreso (Solo se anima en la sección visible) -->
+      <!-- Línea superior de progreso de tiempo -->
       <div class="section-progress-bar"></div>
 
+      <!-- Contenido de Texto Central -->
       <div class="vertical-section-overlay-content">
         <span class="collection-label">Atelier Mercedes Fleitas</span>
         <h2 class="editorial-main-title">{{ section.title }}</h2>
@@ -15,10 +22,31 @@
         </button>
       </div>
 
-      <!-- Al hacer click manual, reinicia el contador de tiempo -->
+      <!-- Botón de navegación (Flecha de salto manual) -->
       <div class="vertical-scroll-navigation" (click)="onManualNavigation()" aria-label="Siguiente Sección">
         <span class="navigation-arrow- bounce-animation"></span>
       </div>
+
     </section>
   }
+
+</div>
+
+<!-- ==========================================================================
+     SECCIÓN DE PRODUCTOS Colección 2026
+     ========================================================================== -->
+<div class="catalog-section-divider">
+  <!-- Título idéntico a tu captura de pantalla -->
+  <h2 class="section-title">NUEVA COLECCIÓN 2026</h2>
+
+  <div class="catalog-container">
+    <div class="catalog-grid">
+      @for (dress of dresses(); track dress.id) {
+        <app-ui-product-card
+          [product]="dress"
+          (click)="navigateToProduct(dress.id)">
+        </app-ui-product-card>
+      }
+    </div>
+  </div>
 </div>
