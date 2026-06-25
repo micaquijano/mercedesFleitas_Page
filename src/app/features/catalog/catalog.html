@@ -6,28 +6,27 @@
   <!-- Iteramos sobre las secciones (Novias, Quince, Fiesta) -->
   @for (section of editorialSections(); track section.id; let i = $index) {
 
-    <section class="editorial-vertical-section"
-             [class.section-visible]="currentEditorialSectionIndex() === i"
-             [style.background-image]="'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(' + section.imageUrl + ')'">
+  <section class="editorial-vertical-section" [class.section-visible]="currentEditorialSectionIndex() === i"
+    [style.background-image]="'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(' + section.imageUrl + ')'">
 
-      <!-- Línea superior de progreso de tiempo -->
-      <div class="section-progress-bar"></div>
+    <!-- Línea superior de progreso de tiempo -->
+    <div class="section-progress-bar"></div>
 
-      <!-- Contenido de Texto Central -->
-      <div class="vertical-section-overlay-content">
-        <span class="collection-label">Atelier Mercedes Fleitas</span>
-        <h2 class="editorial-main-title">{{ section.title }}</h2>
-        <button class="editorial-action-btn" (click)="openCollectionInNewTab(section.id)">
-          Ver Colección
-        </button>
-      </div>
+    <!-- Contenido de Texto Central -->
+    <div class="vertical-section-overlay-content">
+      <span class="collection-label">Atelier Mercedes Fleitas</span>
+      <h2 class="editorial-main-title">{{ section.title }}</h2>
+      <button class="editorial-action-btn" (click)="openCollectionInNewTab(section.id)">
+        Ver Colección
+      </button>
+    </div>
 
-      <!-- Botón de navegación (Flecha de salto manual) -->
-      <div class="vertical-scroll-navigation" (click)="onManualNavigation()" aria-label="Siguiente Sección">
-        <span class="navigation-arrow- bounce-animation"></span>
-      </div>
+    <!-- Botón de navegación (Flecha de salto manual) -->
+    <div class="vertical-scroll-navigation" (click)="onManualNavigation()" aria-label="Siguiente Sección">
+      <span class="navigation-arrow- bounce-animation"></span>
+    </div>
 
-    </section>
+  </section>
   }
 
 </div>
@@ -42,10 +41,7 @@
   <div class="catalog-container">
     <div class="catalog-grid">
       @for (dress of dresses(); track dress.id) {
-        <app-ui-product-card
-          [product]="dress"
-          (click)="navigateToProduct(dress.id)">
-        </app-ui-product-card>
+      <app-ui-product-card [product]="dress" />
       }
     </div>
   </div>

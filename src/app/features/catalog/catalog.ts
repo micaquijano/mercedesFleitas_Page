@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, signal, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { UiProductCard } from '../../shared/components/ui-product-card/ui-product-card';
 
 export interface Product {
@@ -37,6 +37,8 @@ export class Catalog implements OnInit, OnDestroy {
   ]);
 
   private autoPlaySectionsTimer: any;
+
+  private plataform_id = inject(PLATFORM_ID)
 
   ngOnInit(): void {
     this.startEditorialAutoPlay();
@@ -77,11 +79,9 @@ export class Catalog implements OnInit, OnDestroy {
   }
 
   openCollectionInNewTab(categoryUrl: string): void {
-    window.open(`/catalog?category=${categoryUrl}`, '_blank');
+    if(isPlatformBrowser(this.plataform_id)){
+      window.open(`/catalog?category=${categoryUrl}`, '_blank');
+    }
   }
 
-
-  navigateToProduct(id: string): void {
-    console.log('Navegando al producto con ID:', id);
-  }
 }

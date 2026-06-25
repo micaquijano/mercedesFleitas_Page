@@ -1,0 +1,28 @@
+<div class="brides-page-container">
+  <header class="editorial-header">
+    <span class="brand-subtitle">Atelier Mercedes Fleitas</span>
+    <h1 class="main-title">Quinceañeras</h1>
+  </header>
+
+  <div class="brides-grid">
+    @for (vestido of fifteenth(); track vestido.id) {
+    <div class="bridal-card">
+
+      <div class="image-zoom-container">
+        <img [src]="vestido.imageUrl" [alt]="vestido.name" class="bridal-img">
+      </div>
+
+      <div class="bridal-info">
+        <span class="collection-tag">Quinceañeras</span>
+        <h3 class="bridal-name">{{ vestido.name }}</h3>
+        <span class="bridal-price">${{ vestido.price }}</span>
+      </div>
+
+      <button class="bridal-action-btn" [routerLink]="['/product', vestido.id]">
+        View Details
+      </button>
+
+    </div>
+    }
+  </div>
+</div>

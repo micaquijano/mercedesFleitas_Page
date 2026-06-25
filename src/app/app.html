@@ -1,17 +1,21 @@
 <header class="main-header">
   <div class="header-container">
-
     <div class="logo-container">
       <a routerLink="/catalog" class="logo-text">Mercedes Fleitas</a>
     </div>
 
     <nav class="nav-menu">
-      <a routerLink="/catalog" routerLinkActive="active-link" class="nav-item">COLLECTION 2026</a>
-      <a href="#" class="nav-item">QUINCEAÑERAS</a>
-      <a href="#" class="nav-item">NOVIAS</a>
-      <a href="#" class="nav-item">FIESTA COLLECTION</a>
-      <a href="#" class="nav-item">CONTACTO</a>
-    </nav>
+  <!-- Enlace principal al Catálogo -->
+  <a routerLink="/collection" routerLinkActive="active-link" class="nav-item">COLLECTION 2026</a>
+
+  <!-- Enlaces que filtran el catálogo según la categoría que hagan click -->
+  <a routerLink="/fifteenth" routerLinkActive="active-link" class="nav-item">QUINCEAÑERAS</a>
+  <a routerLink="/novias" routerLinkActive="active-link" class="nav-item">NOVIAS</a>
+  <a routerLink="/fiesta-collection" routerLinkActive="active-link" class="nav-item">FIESTA COLLECTION</a>
+
+  <!-- Enlace directo a contacto -->
+  <a routerLink="/contacto" routerLinkActive="active-link" class="nav-item">CONTACTO</a>
+</nav>
 
     <div class="actions-menu">
       <button class="icon-btn" aria-label="Search">
@@ -106,3 +110,7 @@
     </div>
   </div>
 }
+
+
+
+// crear componente ej: ng generate component features/brides --skip-tests

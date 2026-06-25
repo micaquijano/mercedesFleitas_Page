@@ -1,11 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common'; // <-- 1. IMPORTANTE: Agregar esta línea
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, CommonModule], // <-- 2. REQUISITO: Sumarlo a la lista de imports
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
