@@ -54,6 +54,36 @@ export class ProductDetailComponent implements OnInit {
       description: 'Inspirado en la dualidad y el misterio teatral. Destaca por su impactante tajo lateral y un delicado juego de cintas entrelazadas en la espalda descubierta.',
       fabrics: ['Raso de seda italiano', 'Gasa de seda flotante'],
       details: ['Espalda abierta con lazo regulable', 'Tajo profundo estilizado', 'Falda con movimiento etéreo']
+    },
+    {
+      id: 'n1',
+      name: 'Amelie',
+      collection: 'Colección Exclusiva',
+      price: 150000,
+      imageUrl: '/images/VestidoAmelie.png',
+      description: 'Un diseño romántico y atemporal que combina delicadeza y elegancia en cada detalle de su confección.',
+      fabrics: ['Encaje francés', 'Tul bordado', 'Satén de seda'],
+      details: ['Escote corazón', 'Espalda semi-abierta', 'Cola capilla']
+    },
+    {
+      id: 'n2',
+      name: 'Juliette',
+      collection: 'Colección Exclusiva',
+      price: 175000,
+      imageUrl: '/images/VestidoAurora.png',
+      description: 'Silueta princesa con un toque moderno, pensada para novias que buscan volumen y sofisticación.',
+      fabrics: ['Organza de seda', 'Encaje de Alençon', 'Tul rígido'],
+      details: ['Corpiño bordado a mano', 'Falda con múltiples capas', 'Cierre de botones forrados']
+    },
+    {
+      id: 'n3',
+      name: 'Antoinette',
+      collection: 'Colección Exclusiva',
+      price: 190000,
+      imageUrl: '/images/VestidoVictoria.png',
+      description: 'Una pieza de inspiración clásica con líneas depuradas y un diseño que resalta la elegancia natural.',
+      fabrics: ['Mikado de seda', 'Encaje de Chantilly', 'Crepe satinado'],
+      details: ['Escote bardot', 'Cintura marcada', 'Falda estructurada con cola']
     }
   ];
 
