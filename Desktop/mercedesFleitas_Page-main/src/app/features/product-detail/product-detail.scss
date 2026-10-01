@@ -1,0 +1,176 @@
+.detail-container {
+  display: flex;
+  max-width: 1400px; // Evita que en pantallas muy grandes se estire al infinito
+  margin: 0 auto;    // Centra el contenedor en la pantalla
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+
+  // Panel izquierdo: Imagen más contenida
+  .image-gallery {
+    width: 50%; // Bajamos del 55% al 50% para equilibrar las mitades
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: #000000;
+    overflow: hidden;
+
+    .main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; // Cambiado de 'cover' a 'contain' para que la foto no se agrande de más y se vea completa
+      object-position: center top;
+      padding: 40px; // Le da un marco elegante para que respire la imagen
+      box-sizing: border-box;
+    }
+  }
+
+  // Panel derecho: Textos más chicos y estilizados
+  .info-sidebar {
+    width: 50%;
+    padding: 80px 100px; // Espaciado amplio para dar un look premium
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Centra verticalmente el bloque de texto
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    .back-link {
+      color: #666666;
+      text-decoration: none;
+      font-size: 0.8rem; // Más chico y sutil
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    .product-header {
+      .collection-tag {
+        font-size: 0.75rem; // Reducido
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #888888;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .dress-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.4rem; // Reducido significativamente de 3rem
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin: 0 0 10px 0;
+      }
+
+      .dress-price {
+        font-size: 1.25rem; // Reducido de 1.5rem
+        color: #aaaaaa;
+        font-weight: 300;
+        margin: 0;
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background: #222222;
+      margin: 35px 0;
+    }
+
+    .description-section {
+      .description-text {
+        font-size: 0.95rem; // Bajado de 1.1rem para que no se vea gigante
+        line-height: 1.7;
+        color: #b0b0b0;
+        font-weight: 300;
+      }
+    }
+
+    .specs-section {
+      margin-top: 30px;
+
+      h3 {
+        font-size: 0.8rem; // Reducido
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #666666;
+        margin-bottom: 12px;
+        font-weight: 400;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          font-size: 0.875rem; // Reducido de 1rem
+          color: #cccccc;
+          margin-bottom: 8px;
+          position: relative;
+          padding-left: 15px;
+          font-weight: 300;
+
+          &::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #444444;
+          }
+        }
+      }
+    }
+
+    .action-btn {
+      margin-top: 45px;
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+      padding: 14px; // Menos alto para que sea más fino
+      font-size: 0.85rem; // Letra del botón más chica
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      width: 100%;
+      max-width: 350px; // El botón ya no ocupa todo el ancho, queda fino y elegante
+
+      &:hover {
+        background: transparent;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Vista responsiva para pantallas más chicas
+@media (max-width: 1024px) {
+  .detail-container {
+    flex-direction: column;
+
+    .image-gallery {
+      width: 100%;
+      height: 50vh;
+      position: relative;
+
+      .main-image {
+        padding: 20px;
+      }
+    }
+
+    .info-sidebar {
+      width: 100%;
+      padding: 40px 30px;
+
+      .action-btn {
+        max-width: 100%;
+      }
+    }
+  }
+}

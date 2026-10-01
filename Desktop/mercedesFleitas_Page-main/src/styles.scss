@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'styles/variables' as *;
+
+body {
+background-color: $color-bg-dark;
+color: $color-text-light;
+font-family: $font-sans;
+margin: 0;
+padding: 0;
+-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .brand-title {
+font-family: $font-editorial;
+letter-spacing: 0.05em;
+}

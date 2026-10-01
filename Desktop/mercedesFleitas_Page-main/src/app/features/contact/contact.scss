@@ -1,0 +1,236 @@
+// ==========================================================================
+// VARIABLES DE DISEÑO
+// ==========================================================================
+$color-dark-bg: #070707;       // Negro absoluto profundo
+$color-dark-surface: #0e0e0e;  // Negro sutil para el bloque del formulario
+$color-gold-mate: #b59a57;     // Dorado
+$font-editorial: 'Playfair Display', serif;
+
+.contact-page-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%; // Proporción asimétrica
+  min-height: calc(100vh - 80px); // Ajuste para que se acople abajo del header limpio
+  background-color: $color-dark-bg;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+// ==========================================================================
+// SECCIÓN IZQUIERDA
+// ==========================================================================
+.contact-info-sidebar {
+  position: relative;
+  background: radial-gradient(circle at 30% 30%, #161616 0%, $color-dark-bg 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+
+  .sidebar-content {
+    width: 100%;
+    max-width: 400px;
+
+    .brand-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: $color-gold-mate;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .main-title {
+      font-family: $font-editorial;
+      font-size: 4.2rem;
+      font-weight: 300;
+      color: #ffffff;
+      margin: 0 0 25px 0;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .sidebar-intro {
+      color: #a0a0a0; // Gris más claro para que sea legible
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 60px;
+    }
+  }
+
+  .info-gothic-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+
+      .info-title {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #666666;
+        margin-bottom: 8px;
+      }
+
+      .info-value {
+        font-size: 1.5rem;
+        color: #ffffff;
+        font-weight: 300;
+      }
+
+      .info-link {
+        font-size: 1.5rem;
+        color: #e0e0e0;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        width: fit-content;
+
+        &:hover {
+          color: $color-gold-mate;
+          transform: translateX(4px); // Pequeño desplazamiento elegante al pasar el mouse
+        }
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// SECCIÓN DERECHA: FORMULARIO SOFISTICADO
+// ==========================================================================
+.contact-form-container {
+  background-color: $color-dark-surface; // Contraste sutil de fondos oscuros
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 15%;
+  box-sizing: border-box;
+
+  .form-header {
+    margin-bottom: 65px;
+
+    .form-title {
+      font-family: $font-editorial;
+      font-size: 3.6rem;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .form-subtitle {
+      color: #777777;
+      font-size: 1rem;
+    }
+  }
+
+  .minimalist-gothic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    .input-line-group {
+      position: relative;
+      width: 100%;
+
+      input, textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #2a2a2a; // Línea base más limpia
+        padding: 12px 0;
+        color: #ffffff;
+        font-size: 1.1rem;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.4s ease;
+
+        &:focus, &:not(:placeholder-shown) {
+          border-bottom: 1px solid $color-gold-mate;
+        }
+      }
+
+      label {
+        position: absolute;
+        left: 0;
+        top: 12px;
+        color: #666666; // Color de etiqueta en reposo
+        font-size: 1.2rem;
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      // Animación
+      input:focus ~ label,
+      input:not(:placeholder-shown) ~ label,
+      textarea:focus ~ label,
+      textarea:not(:placeholder-shown) ~ label {
+        top: -20px;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: $color-gold-mate;
+      }
+    }
+
+    .textarea-group {
+      margin-top: 10px;
+      textarea {
+        resize: none;
+      }
+    }
+
+    // BOTÓN DE ENVÍO
+    .form-actions {
+      margin-top: 25px;
+
+      .submit-editorial-btn {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid #333333;
+        padding: 18px 60px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+        &:hover {
+          border-color: $color-gold-mate;
+          background-color: $color-gold-mate;
+          color: #000000;
+          box-shadow: 0 10px 30px rgba(181, 154, 87, 0.15);
+        }
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// RESPONSIVE DESIGN
+// ==========================================================================
+@media (max-width: 1024px) {
+  .contact-page-wrapper {
+    grid-template-columns: 100%;
+  }
+
+  .contact-info-sidebar {
+    padding: 80px 40px 60px 40px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    justify-content: flex-start;
+
+    .sidebar-content {
+      max-width: 100%;
+    }
+  }
+
+  .contact-form-container {
+    padding: 80px 40px;
+  }
+}

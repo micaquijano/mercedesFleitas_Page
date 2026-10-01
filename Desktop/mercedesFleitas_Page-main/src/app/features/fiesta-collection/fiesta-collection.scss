@@ -1,0 +1,144 @@
+$color-gold-base: #8c733e; // El tono ocre de tus botones
+$color-gold-hover: #b59a57; // Dorado brillante al enfocar
+$color-dark-bg: #070707;
+$font-serif: 'Playfair Display', serif;
+
+.brides-page-container {
+  background-color: $color-dark-bg;
+  padding: 60px 8%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  .editorial-header {
+    text-align: center;
+    margin-bottom: 70px;
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: $color-gold-hover;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .main-title {
+      font-family: $font-serif;
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+// GRILLA DE 3 COLUMNAS MÁS GRANDES
+.brides-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Clave: 3 por fila fijas
+  gap: 50px; // Más espacio entre cajas para que se vean masivas e imponentes
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+// LA TARJETA PREMIUM
+.bridal-card {
+  background-color: #0c0c0c;
+  border: 1px solid #141414;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.4s ease;
+
+  &:hover {
+    border-color: rgba(181, 154, 87, 0.25);
+  }
+
+  // CONTENEDOR EFECTO ZOOM
+  .image-zoom-container {
+    width: 100%;
+    aspect-ratio: 2 / 3; // Proporción vertical estilizada
+    overflow: hidden;    // Recorta los bordes de la foto al agrandarse
+    background-color: #111111;
+
+    .bridal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); // Transición ultra suave
+    }
+  }
+
+  // DISPARADOR DEL ZOOM EN HOVER
+  &:hover {
+    .bridal-img {
+      transform: scale(1.06); // Zoom elegante sin perder nitidez
+    }
+  }
+
+  // TEXTOS DE LA CARD
+  .bridal-info {
+    text-align: center;
+    padding: 28px 0 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    .collection-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #555555;
+    }
+
+    .bridal-name {
+      font-family: $font-serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: $color-gold-hover;
+      margin: 0;
+    }
+
+    .bridal-price {
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+  }
+
+  // BOTÓN LLENO (IGUAL A TU CAPTURA ORIGINAL)
+  .bridal-action-btn {
+    background-color: $color-gold-base;
+    color: #ffffff;
+    border: none;
+    padding: 15px 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-gold-hover; // Se ilumina al posarse encima
+    }
+  }
+}
+
+// RESPONSIVE DESIGN
+@media (max-width: 1100px) {
+  .brides-grid {
+    grid-template-columns: repeat(2, 1fr); // 2 por fila en tablets
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brides-grid {
+    grid-template-columns: 100%; // 1 por fila en celulares
+  }
+}
