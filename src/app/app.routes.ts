@@ -3,12 +3,32 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'catalog',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    loadComponent: () => import('./features/home/home').then(m => m.Home)
+  },
+  {
     path: 'catalog',
-    loadComponent: () => import('./features/catalog/catalog').then(m => m.Catalog)
+    loadComponent: () => import('./features/catalog-view/catalog-view').then(m => m.CatalogView),
+    data: { category: 'collection-2026' }
+  },
+  {
+    path: 'novias',
+    loadComponent: () => import('./features/catalog-view/catalog-view').then(m => m.CatalogView),
+    data: { category: 'novias' }
+  },
+  {
+    path: 'fiesta-collection',
+    loadComponent: () => import('./features/catalog-view/catalog-view').then(m => m.CatalogView),
+    data: { category: 'fiesta-collection' }
+  },
+  {
+    path: 'fifteenth',
+    loadComponent: () => import('./features/catalog-view/catalog-view').then(m => m.CatalogView),
+    data: { category: 'fifteenth' }
   },
   {
     path: 'product/:id',
@@ -19,23 +39,19 @@ export const routes: Routes = [
     loadComponent: () => import('./features/contact/contact').then(m => m.Contact)
   },
   {
-    path: 'novias',
-    loadComponent: () => import('./features/brides/brides').then(m => m.BridesComponent)
+    path: 'favoritos',
+    loadComponent: () => import('./features/favorites/favorites-view').then(m => m.FavoritesView)
   },
   {
-  path: 'fiesta-collection',
-  loadComponent: () => import('./features/fiesta-collection/fiesta-collection').then(m => m.FiestaCollection)
+    path: 'login',
+    loadComponent: () => import('./features/auth/login/login').then(m => m.Login)
   },
   {
-  path: 'fifteenth',
-  loadComponent: () => import('./features/fifteenth/fifteenth').then(m => m.Fifteenth)
-  },
-  {
-  path: 'collection',
-  loadComponent: () => import('./features/collection/collection').then(m => m.Collection)
+    path: 'registro',
+    loadComponent: () => import('./features/auth/register/register').then(m => m.Register)
   },
   {
     path: '**',
-    redirectTo: 'catalog'
+    redirectTo: 'home'
   }
 ];

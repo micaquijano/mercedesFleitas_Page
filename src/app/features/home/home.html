@@ -1,1 +1,36 @@
-<p>home works!</p>
+<article class="home-page">
+  <app-hero-banner
+    title="Alta Costura para Momentos Eternos"
+    subtitle="Atelier Mercedes Fleitas"
+    imageUrl="/images/Banner.png"
+    ctaLabel="Explorar Catálogo"
+    ctaLink="/catalog"
+  />
+
+  <section class="quick-access" aria-labelledby="quick-access-title">
+    <h2 id="quick-access-title" class="section-title">Nuestras Colecciones</h2>
+
+    <div class="quick-access-grid">
+      @for (collection of quickAccessCollections; track collection.title) {
+        <a
+          class="quick-access-card"
+          [routerLink]="collection.link"
+          [style.background-image]="'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.7)), url(' + collection.imageUrl + ')'"
+          [attr.aria-label]="'Ver colección ' + collection.title"
+        >
+          <span class="quick-access-title">{{ collection.title }}</span>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="featured" aria-labelledby="featured-title">
+    <h2 id="featured-title" class="section-title">Vestidos Destacados</h2>
+
+    <div class="featured-grid">
+      @for (vestido of featuredVestidos(); track vestido.id) {
+        <app-product-card [vestido]="vestido" (addToCart)="onAddToCart($event)" />
+      }
+    </div>
+  </section>
+</article>

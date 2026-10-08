@@ -1,6 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './core/services/auth.service';
+import { FavoritesService } from './core/services/favorites.service';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +18,16 @@ import { CommonModule } from '@angular/common';
 })
 export class App {
   protected readonly title = signal('pageMercedesFleitas');
+  protected readonly authService = inject(AuthService);
+  protected readonly favoritesService = inject(FavoritesService);
 
   isModalOpen = signal<boolean>(false);
   modalTitle = signal<string>('');
   modalContent = signal<string>('');
+
+  async onLogout(): Promise<void> {
+    await this.authService.logout();
+  }
 
   openLegalModal(type: string): void {
     if (type === 'terminos') {

@@ -1,0 +1,9 @@
+<section class="hero-banner" [style.background-image]="'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)), url(' + imageUrl() + ')'" role="img" [attr.aria-label]="title()">
+  <div class="hero-content">
+    @if (subtitle()) {
+      <span class="hero-subtitle">{{ subtitle() }}</span>
+    }
+    <h1 class="hero-title">{{ title() }}</h1>
+    <a class="hero-cta" [routerLink]="ctaLink()">{{ ctaLabel() }}</a>
+  </div>
+</section>

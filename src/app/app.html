@@ -1,36 +1,51 @@
 <header class="main-header">
   <div class="header-container">
     <div class="logo-container">
-      <a routerLink="/catalog" class="logo-text">Mercedes Fleitas</a>
+      <a routerLink="/home" class="logo-text">Mercedes Fleitas</a>
     </div>
 
     <nav class="nav-menu">
   <!-- Enlace principal al Catálogo -->
-  <a routerLink="/collection" routerLinkActive="active-link" class="nav-item">COLLECTION 2026</a>
+  <a routerLink="/catalog" routerLinkActive="active-link" ariaCurrentWhenActive="page" class="nav-item">COLLECTION 2026</a>
 
   <!-- Enlaces que filtran el catálogo según la categoría que hagan click -->
-  <a routerLink="/fifteenth" routerLinkActive="active-link" class="nav-item">QUINCEAÑERAS</a>
-  <a routerLink="/novias" routerLinkActive="active-link" class="nav-item">NOVIAS</a>
-  <a routerLink="/fiesta-collection" routerLinkActive="active-link" class="nav-item">FIESTA COLLECTION</a>
+  <a routerLink="/fifteenth" routerLinkActive="active-link" ariaCurrentWhenActive="page" class="nav-item">QUINCEAÑERAS</a>
+  <a routerLink="/novias" routerLinkActive="active-link" ariaCurrentWhenActive="page" class="nav-item">NOVIAS</a>
+  <a routerLink="/fiesta-collection" routerLinkActive="active-link" ariaCurrentWhenActive="page" class="nav-item">FIESTA COLLECTION</a>
 
   <!-- Enlace directo a contacto -->
-  <a routerLink="/contacto" routerLinkActive="active-link" class="nav-item">CONTACTO</a>
+  <a routerLink="/contacto" routerLinkActive="active-link" ariaCurrentWhenActive="page" class="nav-item">CONTACTO</a>
 </nav>
 
     <div class="actions-menu">
       <button class="icon-btn" aria-label="Search">
         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       </button>
-      <button class="icon-btn" aria-label="Favorites">
+      <a routerLink="/favoritos" class="icon-btn favorites-btn" aria-label="Favoritos">
         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      </button>
+        @if (favoritesService.favoriteIds().size > 0) {
+          <span class="cart-badge" aria-live="polite">{{ favoritesService.favoriteIds().size }}</span>
+        }
+      </a>
       <button class="icon-btn cart-btn" aria-label="Cart">
         <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
         <span class="cart-badge">0</span>
       </button>
-      <button class="icon-btn profile-hidden-mobile" aria-label="Profile">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-      </button>
+      @if (authService.isLoading()) {
+        <span class="icon-btn profile-hidden-mobile" aria-hidden="true"></span>
+      } @else if (authService.currentUser()) {
+        <button
+          class="icon-btn profile-hidden-mobile"
+          type="button"
+          [attr.aria-label]="'Cerrar sesión de ' + (authService.currentUser()?.displayName || authService.currentUser()?.email)"
+          (click)="onLogout()">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </button>
+      } @else {
+        <a routerLink="/login" class="icon-btn profile-hidden-mobile" aria-label="Iniciar sesión">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+      }
 
       <button class="icon-btn mobile-menu-toggle" aria-label="Open Menu">
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -58,7 +73,7 @@
         <li><a routerLink="/fiesta-collection" routerLinkActive="active-link" class="nav-item">FIESTA COLLECTION</a></li>
         <li><a routerLink="/fifteenth" routerLinkActive="active-link" class="nav-item">QUINCEAÑERAS</a></li>
         <li><a routerLink="/novias" routerLinkActive="active-link" class="nav-item">NOVIAS</a></li>
-        <li><a routerLink="/collection" routerLinkActive="active-link" class="nav-item">COLLECTION 2026</a></li>
+        <li><a routerLink="/catalog" routerLinkActive="active-link" class="nav-item">COLLECTION 2026</a></li>
         <li><a routerLink="/contacto" routerLinkActive="active-link" class="nav-item">CONTACTO</a></li>
       </ul>
     </div>

@@ -100,12 +100,14 @@ $font-editorial: 'Playfair Display', serif;
       justify-content: center;
       transition: color 0.3s;
       position: relative;
+      text-decoration: none;
 
       &:hover {
         color: $color-gold;
       }
 
-      &.cart-btn {
+      &.cart-btn,
+      &.favorites-btn {
         .cart-badge {
           position: absolute;
           top: -2px;

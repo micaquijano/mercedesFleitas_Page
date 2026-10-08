@@ -1,0 +1,69 @@
+$color-gold-accent: #d4af37;
+$font-serif: 'Playfair Display', serif;
+
+.hero-banner {
+  width: 100%;
+  min-height: 85vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 0 24px;
+  max-width: 760px;
+}
+
+.hero-subtitle {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $color-gold-accent;
+}
+
+.hero-title {
+  font-family: $font-serif;
+  font-weight: 300;
+  font-size: 3.4rem;
+  line-height: 1.15;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.hero-cta {
+  margin-top: 10px;
+  padding: 16px 38px;
+  background: transparent;
+  border: 1px solid $color-gold-accent;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: $color-gold-accent;
+    color: #000000;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold-accent;
+    outline-offset: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}

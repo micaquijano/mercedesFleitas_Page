@@ -1,0 +1,12 @@
+<article class="catalog-view-container">
+  <header class="editorial-header">
+    <span class="brand-subtitle">Atelier Mercedes Fleitas</span>
+    <h1 class="main-title">{{ meta.title }}</h1>
+  </header>
+
+  <section class="catalog-grid" [attr.aria-label]="meta.title">
+    @for (vestido of vestidos(); track vestido.id) {
+      <app-product-card [vestido]="vestido" />
+    }
+  </section>
+</article>
