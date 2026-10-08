@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './core/services/auth.service';
 import { FavoritesService } from './core/services/favorites.service';
+import { SearchOverlayComponent } from './shared/components/search-overlay/search-overlay';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { FavoritesService } from './core/services/favorites.service';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    CommonModule
+    CommonModule,
+    SearchOverlayComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -24,6 +26,15 @@ export class App {
   isModalOpen = signal<boolean>(false);
   modalTitle = signal<string>('');
   modalContent = signal<string>('');
+  isSearchOpen = signal<boolean>(false);
+
+  openSearch(): void {
+    this.isSearchOpen.set(true);
+  }
+
+  closeSearch(): void {
+    this.isSearchOpen.set(false);
+  }
 
   async onLogout(): Promise<void> {
     await this.authService.logout();

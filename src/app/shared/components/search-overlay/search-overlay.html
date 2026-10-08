@@ -1,0 +1,55 @@
+<div
+  id="search-overlay-panel"
+  class="search-overlay"
+  [class.is-open]="isOpen()"
+  [attr.inert]="isOpen() ? null : ''"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Buscar vestidos"
+  (keydown)="onKeydown($event)">
+
+  <button type="button" class="search-close-btn" aria-label="Cerrar búsqueda" (click)="onClose()">
+    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+
+  <div class="search-panel">
+    <label for="search-input" class="search-label">Buscar</label>
+    <input
+      #searchInput
+      id="search-input"
+      type="search"
+      class="search-input"
+      placeholder="Buscar por nombre o colección…"
+      [value]="query()"
+      (input)="onQueryChange($event)"
+      autocomplete="off">
+
+    @if (query().trim().length > 0) {
+      <p class="search-status" role="status" aria-live="polite">
+        {{ results().length }} resultado{{ results().length === 1 ? '' : 's' }}
+      </p>
+
+      @if (results().length > 0) {
+        <ul class="search-results">
+          @for (vestido of results(); track vestido.id) {
+            <li>
+              <a [routerLink]="['/product', vestido.id]" class="search-result" (click)="onClose()">
+                <img [src]="vestido.imageUrl" [alt]="vestido.name" class="search-result-image">
+                <span class="search-result-info">
+                  <span class="search-result-collection">{{ vestido.collection }}</span>
+                  <span class="search-result-name">{{ vestido.name }}</span>
+                  <span class="search-result-price">${{ vestido.price }}</span>
+                </span>
+              </a>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p class="search-empty">
+          No encontramos vestidos para "{{ query() }}".
+          <a routerLink="/catalog" (click)="onClose()">Ver todo el catálogo</a>
+        </p>
+      }
+    }
+  </div>
+</div>
