@@ -16,17 +16,12 @@
 
         <div class="info-item">
           <span class="info-title">Teléfono</span>
-          <a href="https://wa.me/5491160214899" target="_blank" class="info-link">+54 9 11 6021-4899</a>
+          <a href="https://wa.me/5491126723821" target="_blank" class="info-link">+54 9 11 2672-3821</a>
         </div>
 
         <div class="info-item">
           <span class="info-title">Email</span>
-          <a href="mailto:info@eleonoraerico.com.ar" class="info-link">info@eleonoraerico.com.ar</a>
-        </div>
-
-        <div class="info-item">
-          <span class="info-title">Instagram</span>
-          <a href="https://instagram.com" target="_blank" class="info-link">@mercedesfleitas.atelier</a>
+          <a href="mailto:AtelierMercedesFleitas@gmail.com" class="info-link">AtelierMercedesFleitas@gmail.com</a>
         </div>
       </div>
     </div>
@@ -38,33 +33,54 @@
       <p class="form-subtitle">Compartinos tu visión o consultanos por tu próximo vestido.</p>
     </div>
 
-    <form class="minimalist-gothic-form">
-      <div class="input-line-group">
-        <input type="text" id="name" required placeholder=" ">
-        <label for="name">Nombre (requerido)</label>
-      </div>
+    @if (status() === 'success') {
+      <p class="form-status form-status-success" role="status" aria-live="polite">
+        Gracias por tu mensaje. Te vamos a responder a la brevedad.
+      </p>
+    } @else {
+      <form class="minimalist-gothic-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="input-line-group">
+          <input type="text" id="name" formControlName="name" placeholder=" " [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched">
+          <label for="name">Nombre (requerido)</label>
+          @if (form.controls.name.invalid && form.controls.name.touched) {
+            <span class="field-error" role="alert">Ingresá tu nombre.</span>
+          }
+        </div>
 
-      <div class="input-line-group">
-        <input type="email" id="email" required placeholder=" ">
-        <label for="email">Email (requerido)</label>
-      </div>
+        <div class="input-line-group">
+          <input type="email" id="email" formControlName="email" placeholder=" " [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched">
+          <label for="email">Email (requerido)</label>
+          @if (form.controls.email.invalid && form.controls.email.touched) {
+            <span class="field-error" role="alert">Ingresá un email válido.</span>
+          }
+        </div>
 
-      <div class="input-line-group">
-        <input type="text" id="subject" placeholder=" ">
-        <label for="subject">Asunto</label>
-      </div>
+        <div class="input-line-group">
+          <input type="text" id="subject" formControlName="subject" placeholder=" ">
+          <label for="subject">Asunto</label>
+        </div>
 
-      <div class="input-line-group textarea-group">
-        <textarea id="message" rows="4" required placeholder=" "></textarea>
-        <label for="message">Tu Mensaje</label>
-      </div>
+        <div class="input-line-group textarea-group">
+          <textarea id="message" rows="4" formControlName="message" placeholder=" " [attr.aria-invalid]="form.controls.message.invalid && form.controls.message.touched"></textarea>
+          <label for="message">Tu Mensaje</label>
+          @if (form.controls.message.invalid && form.controls.message.touched) {
+            <span class="field-error" role="alert">Escribí tu mensaje.</span>
+          }
+        </div>
 
-      <div class="form-actions">
-        <button type="submit" class="submit-editorial-btn">
-          <span>Enviar Solicitud</span>
-        </button>
-      </div>
-    </form>
+        @if (status() === 'error') {
+          <p class="form-status form-status-error" role="alert" aria-live="polite">
+            No pudimos enviar tu mensaje. Probá de nuevo en unos minutos.
+          </p>
+        }
+
+        <div class="form-actions">
+          <button type="submit" class="submit-editorial-btn" [disabled]="status() === 'submitting'">
+            <span>{{ status() === 'submitting' ? 'Enviando…' : 'Enviar Solicitud' }}</span>
+          </button>
+        </div>
+      </form>
+    }
   </div>
 
 </div>

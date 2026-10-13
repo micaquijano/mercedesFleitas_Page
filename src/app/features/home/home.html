@@ -7,6 +7,30 @@
     ctaLink="/catalog"
   />
 
+  <section class="how-it-works" aria-labelledby="how-it-works-title">
+    <h2 id="how-it-works-title" class="section-title">Así Funciona</h2>
+
+    <div class="how-it-works-steps">
+      <div class="how-it-works-step">
+        <span class="step-number">01</span>
+        <h3 class="step-title">Elegí tus piezas</h3>
+        <p class="step-text">Explorá el catálogo y guardá tus vestidos favoritos o sumalos al carrito.</p>
+      </div>
+
+      <div class="how-it-works-step">
+        <span class="step-number">02</span>
+        <h3 class="step-title">Escribinos por WhatsApp</h3>
+        <p class="step-text">Con un clic armamos el mensaje con el detalle de lo que te interesa.</p>
+      </div>
+
+      <div class="how-it-works-step">
+        <span class="step-number">03</span>
+        <h3 class="step-title">Cita en el taller</h3>
+        <p class="step-text">Coordinamos tu prueba y ajustamos cada detalle de tu pieza a medida.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="quick-access" aria-labelledby="quick-access-title">
     <h2 id="quick-access-title" class="section-title">Nuestras Colecciones</h2>
 
@@ -29,7 +53,7 @@
 
     <div class="featured-grid">
       @for (vestido of featuredVestidos(); track vestido.id) {
-        <app-product-card [vestido]="vestido" (addToCart)="onAddToCart($event)" />
+        <app-product-card [vestido]="vestido" />
       }
     </div>
   </section>

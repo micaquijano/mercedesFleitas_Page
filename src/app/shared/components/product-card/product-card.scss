@@ -136,6 +136,7 @@ $color-border: #1a1a1a;
     cursor: pointer;
     border-radius: 4px;
     text-align: center;
+    text-decoration: none;
     display: block;
     box-sizing: border-box;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -164,6 +165,11 @@ $color-border: #1a1a1a;
     border: 1px solid $color-gold-mate;
 
     &:hover {
+      background: $color-gold-mate;
+      color: #000000;
+    }
+
+    &.is-active {
       background: $color-gold-mate;
       color: #000000;
     }

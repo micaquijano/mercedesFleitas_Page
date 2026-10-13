@@ -24,8 +24,4 @@ export class Home {
   ];
 
   featuredVestidos = computed<Vestido[]>(() => VESTIDOS.filter((vestido) => vestido.featured));
-
-  onAddToCart(vestido: Vestido): void {
-    console.log('Agregado al carrito (pendiente de implementar):', vestido.name);
-  }
 }

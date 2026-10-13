@@ -19,8 +19,4 @@ export class FavoritesView {
   favoriteVestidos = computed<Vestido[]>(() =>
     VESTIDOS.filter((vestido) => this.favoritesService.isFavorite(vestido.id))
   );
-
-  onAddToCart(vestido: Vestido): void {
-    console.log('Agregado al carrito (pendiente de implementar):', vestido.name);
-  }
 }

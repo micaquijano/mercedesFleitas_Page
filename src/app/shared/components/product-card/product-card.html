@@ -32,9 +32,11 @@
     <button
       type="button"
       class="add-to-cart-btn"
-      [attr.aria-label]="'Agregar ' + vestido().name + ' al carrito'"
-      (click)="onAddToCart()">
-      Agregar al Carrito
+      [class.is-active]="isInCart()"
+      [attr.aria-pressed]="isInCart()"
+      [attr.aria-label]="(isInCart() ? 'Quitar ' + vestido().name + ' del carrito' : 'Agregar ' + vestido().name + ' al carrito')"
+      (click)="onToggleCart()">
+      {{ isInCart() ? 'En el Carrito' : 'Agregar al Carrito' }}
     </button>
   </div>
 </article>

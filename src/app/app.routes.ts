@@ -39,6 +39,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/contact/contact').then(m => m.Contact)
   },
   {
+    path: 'carrito',
+    loadComponent: () => import('./features/cart/cart-view').then(m => m.CartView)
+  },
+  {
     path: 'favoritos',
     loadComponent: () => import('./features/favorites/favorites-view').then(m => m.FavoritesView)
   },

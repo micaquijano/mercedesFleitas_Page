@@ -1,8 +1,9 @@
-import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Vestido } from '../../../data/vestidos.data';
 import { AuthService } from '../../../core/services/auth.service';
 import { FavoritesService } from '../../../core/services/favorites.service';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -13,15 +14,16 @@ import { FavoritesService } from '../../../core/services/favorites.service';
 export class ProductCardComponent {
   private authService = inject(AuthService);
   private favoritesService = inject(FavoritesService);
+  private cartService = inject(CartService);
 
   vestido = input.required<Vestido>();
-  addToCart = output<Vestido>();
 
   showLoginHint = signal(false);
   isFavorite = computed(() => this.favoritesService.isFavorite(this.vestido().id));
+  isInCart = computed(() => this.cartService.isInCart(this.vestido().id));
 
-  onAddToCart(): void {
-    this.addToCart.emit(this.vestido());
+  onToggleCart(): void {
+    this.cartService.toggle(this.vestido().id);
   }
 
   onToggleFavorite(): void {

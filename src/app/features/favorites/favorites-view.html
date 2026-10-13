@@ -17,7 +17,7 @@
   } @else {
     <section class="catalog-grid" aria-label="Mis Favoritos">
       @for (vestido of favoriteVestidos(); track vestido.id) {
-        <app-product-card [vestido]="vestido" (addToCart)="onAddToCart($event)" />
+        <app-product-card [vestido]="vestido" />
       }
     </section>
   }
