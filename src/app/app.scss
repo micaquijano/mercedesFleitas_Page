@@ -100,12 +100,14 @@ $font-editorial: 'Playfair Display', serif;
       justify-content: center;
       transition: color 0.3s;
       position: relative;
+      text-decoration: none;
 
       &:hover {
         color: $color-gold;
       }
 
-      &.cart-btn {
+      &.cart-btn,
+      &.favorites-btn {
         .cart-badge {
           position: absolute;
           top: -2px;
@@ -158,6 +160,32 @@ $font-editorial: 'Playfair Display', serif;
 
     .nav-menu {
       display: none;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1a1a1a;
+      max-height: calc(100vh - 65px);
+      overflow-y: auto;
+
+      &.is-mobile-open {
+        display: flex;
+      }
+
+      .nav-item {
+        padding: 18px 20px;
+        text-align: center;
+        border-bottom: 1px solid #141414;
+
+        &.active-link::after {
+          display: none;
+        }
+      }
     }
 
     .logo-container {
@@ -182,6 +210,22 @@ $font-editorial: 'Playfair Display', serif;
   .page-content {
     padding-top: 65px;
     min-height: calc(100vh - 65px);
+  }
+}
+
+@media (max-width: 420px) {
+  .main-header {
+    .logo-container {
+      .logo-text {
+        font-size: 1.05rem;
+        letter-spacing: 2px;
+        white-space: nowrap;
+      }
+    }
+
+    .actions-menu {
+      gap: 6px;
+    }
   }
 }
 

@@ -1,6 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './core/services/auth.service';
+import { FavoritesService } from './core/services/favorites.service';
+import { CartService } from './core/services/cart.service';
+import { SearchOverlayComponent } from './shared/components/search-overlay/search-overlay';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +13,43 @@ import { CommonModule } from '@angular/common';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    CommonModule
+    CommonModule,
+    SearchOverlayComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('pageMercedesFleitas');
+  protected readonly authService = inject(AuthService);
+  protected readonly favoritesService = inject(FavoritesService);
+  protected readonly cartService = inject(CartService);
 
   isModalOpen = signal<boolean>(false);
   modalTitle = signal<string>('');
   modalContent = signal<string>('');
+  isSearchOpen = signal<boolean>(false);
+  isMobileMenuOpen = signal<boolean>(false);
+
+  openSearch(): void {
+    this.isSearchOpen.set(true);
+  }
+
+  closeSearch(): void {
+    this.isSearchOpen.set(false);
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen.update((open) => !open);
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen.set(false);
+  }
+
+  async onLogout(): Promise<void> {
+    await this.authService.logout();
+  }
 
   openLegalModal(type: string): void {
     if (type === 'terminos') {

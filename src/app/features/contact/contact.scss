@@ -110,6 +110,27 @@ $font-editorial: 'Playfair Display', serif;
   padding: 100px 15%;
   box-sizing: border-box;
 
+  .form-status {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 20px 0;
+  }
+
+  .form-status-success {
+    color: $color-gold-mate;
+  }
+
+  .form-status-error {
+    color: #e07a6e;
+  }
+
+  .field-error {
+    display: block;
+    color: #e07a6e;
+    font-size: 0.78rem;
+    margin-top: 6px;
+  }
+
   .form-header {
     margin-bottom: 65px;
 

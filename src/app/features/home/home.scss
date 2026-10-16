@@ -1,0 +1,136 @@
+$color-dark-bg: #070707;
+$color-gold-accent: #d4af37;
+$font-serif: 'Playfair Display', serif;
+
+.home-page {
+  display: block;
+  background-color: $color-dark-bg;
+}
+
+.section-title {
+  font-family: $font-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+.quick-access,
+.featured,
+.how-it-works {
+  padding: 80px 8%;
+}
+
+.how-it-works {
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.how-it-works-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.how-it-works-step {
+  .step-number {
+    display: block;
+    font-family: $font-serif;
+    font-size: 1.6rem;
+    color: $color-gold-accent;
+    margin-bottom: 14px;
+  }
+
+  .step-title {
+    font-family: $font-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+  }
+
+  .step-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #999999;
+    margin: 0;
+  }
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.quick-access-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  aspect-ratio: 2 / 3;
+  background-color: #000000;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+  padding-bottom: 36px;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold-accent;
+    outline-offset: 3px;
+  }
+}
+
+.quick-access-title {
+  color: #ffffff;
+  font-family: $font-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .quick-access-grid,
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-access-grid,
+  .featured-grid {
+    grid-template-columns: 100%;
+  }
+
+  .quick-access,
+  .featured,
+  .how-it-works {
+    padding: 50px 6%;
+  }
+
+  .how-it-works-steps {
+    grid-template-columns: 100%;
+    gap: 36px;
+  }
+}

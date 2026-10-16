@@ -37,7 +37,20 @@
         </ul>
       </section>
 
-      <button class="action-btn">Agendar Cita en el Taller</button>
+      <div class="action-buttons">
+        <button
+          type="button"
+          class="action-btn"
+          [class.is-active]="isInCart()"
+          [attr.aria-pressed]="isInCart()"
+          (click)="onToggleCart()">
+          {{ isInCart() ? 'En el Carrito' : 'Agregar al Carrito' }}
+        </button>
+
+        <button type="button" class="action-btn action-btn-secondary" (click)="onConsult()">
+          Consultar por esta Pieza
+        </button>
+      </div>
     </div>
   </div>
 } @else {

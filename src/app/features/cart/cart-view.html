@@ -1,0 +1,47 @@
+<article class="cart-container">
+  <header class="editorial-header">
+    <span class="brand-subtitle">Atelier Mercedes Fleitas</span>
+    <h1 class="main-title">Mi Carrito</h1>
+  </header>
+
+  @if (cartVestidos().length === 0) {
+    <p class="empty-state">
+      Tu carrito está vacío.
+      <a routerLink="/catalog">Ver Catálogo</a>
+    </p>
+  } @else {
+    <section class="cart-items" aria-label="Piezas seleccionadas">
+      @for (vestido of cartVestidos(); track vestido.id) {
+        <article class="cart-item">
+          <img [src]="vestido.imageUrl" [alt]="vestido.name" class="cart-item-image">
+
+          <div class="cart-item-info">
+            <span class="cart-item-collection">{{ vestido.collection ?? categoryTitle(vestido) }}</span>
+            <h3 class="cart-item-name">{{ vestido.name }}</h3>
+            <p class="cart-item-price">${{ vestido.price }}</p>
+          </div>
+
+          <button
+            type="button"
+            class="remove-btn"
+            [attr.aria-label]="'Quitar ' + vestido.name + ' del carrito'"
+            (click)="onRemove(vestido.id)">
+            Quitar
+          </button>
+        </article>
+      }
+    </section>
+
+    <div class="cart-summary">
+      <p class="cart-total">
+        <span>Total de referencia</span>
+        <span class="cart-total-value">${{ total() }}</span>
+      </p>
+      <p class="cart-disclaimer">Precios a confirmar en el taller según ajustes y confección a medida.</p>
+
+      <button type="button" class="checkout-btn" (click)="onCheckout()">
+        Finalizar por WhatsApp
+      </button>
+    </div>
+  }
+</article>

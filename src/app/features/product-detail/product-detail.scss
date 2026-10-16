@@ -126,8 +126,16 @@
       }
     }
 
-    .action-btn {
+    .action-buttons {
       margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .action-btn {
       background: #ffffff;
       color: #000000;
       border: 1px solid #ffffff;
@@ -139,11 +147,27 @@
       transition: all 0.3s ease;
       font-weight: 500;
       width: 100%;
-      max-width: 350px; // El botón ya no ocupa todo el ancho, queda fino y elegante
 
       &:hover {
         background: transparent;
         color: #ffffff;
+      }
+
+      &.is-active {
+        background: transparent;
+        color: #ffffff;
+      }
+    }
+
+    .action-btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #555555;
+
+      &:hover {
+        background: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
       }
     }
   }
@@ -168,7 +192,7 @@
       width: 100%;
       padding: 40px 30px;
 
-      .action-btn {
+      .action-buttons {
         max-width: 100%;
       }
     }
