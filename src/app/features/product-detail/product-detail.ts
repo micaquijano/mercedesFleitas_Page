@@ -1,6 +1,6 @@
 import { Component, OnInit, PLATFORM_ID, computed, inject, signal } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Location, isPlatformBrowser } from '@angular/common';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Vestido, VESTIDOS } from '../../data/vestidos.data';
 import { CartService } from '../../core/services/cart.service';
 
@@ -17,6 +17,8 @@ export class ProductDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private platformId = inject(PLATFORM_ID);
   private cartService = inject(CartService);
+  private location = inject(Location);
+  private router = inject(Router);
 
   product = signal<Vestido | null>(null);
   isInCart = computed(() => {
@@ -31,6 +33,14 @@ export class ProductDetailComponent implements OnInit {
     if (foundProduct) {
       this.product.set(foundProduct);
     }
+  }
+
+  goBack(): void {
+    if (isPlatformBrowser(this.platformId) && window.history.length > 1) {
+      this.location.back();
+      return;
+    }
+    this.router.navigateByUrl('/catalog');
   }
 
   onToggleCart(): void {

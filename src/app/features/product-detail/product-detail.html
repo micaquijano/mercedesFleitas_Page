@@ -5,7 +5,7 @@
     </div>
 
     <div class="info-sidebar">
-      <a routerLink="/catalog" class="back-link">← Volver al catálogo</a>
+      <button type="button" class="back-link" (click)="goBack()">← Volver</button>
 
       <header class="product-header">
         <span class="collection-tag">{{ product()?.collection }}</span>
