@@ -126,6 +126,72 @@ export const VESTIDOS: Vestido[] = [
     fabrics: ['Tul', 'Encaje bordado en strass'],
     details: ['Top crop con cuello halter', 'Cintura marcada con pedrería', 'Falda corta con vuelo']
   },
+  {
+    id: 'q7',
+    name: 'Renata',
+    price: 500000,
+    imageUrl: '/images/quinceañeras/quince0007.png',
+    category: 'fifteenth',
+    collection: 'Quinceañeras Edition',
+    description: 'Vestido en satén verde salvia con escote corazón drapeado y tajo alto que deja ver una cola fluida, para una silueta elegante y contemporánea.',
+    fabrics: ['Satén de seda', 'Forro interior estructurado'],
+    details: ['Escote corazón drapeado', 'Tajo lateral alto con cola', 'Bolsillos ocultos en la falda']
+  },
+  {
+    id: 'q8',
+    name: 'Catalina',
+    price: 420000,
+    imageUrl: '/images/quinceañeras/quince0008.png',
+    category: 'fifteenth',
+    collection: 'Quinceañeras Edition',
+    description: 'Vestido dramático en negro y bordó con falda de tul en capas asimétrica, corta adelante y con cola atrás, para una entrada de alto impacto.',
+    fabrics: ['Tul en capas', 'Satén bordó interior'],
+    details: ['Escote corazón strapless', 'Falda asimétrica hi-lo', 'Capas de tul en contraste de color']
+  },
+  {
+    id: 'q9',
+    name: 'Constanza',
+    price: 520000,
+    imageUrl: '/images/quinceañeras/quince0009.png',
+    category: 'fifteenth',
+    collection: 'Quinceañeras Edition',
+    description: 'Silueta princesa en negro y dorado con corpiño de terciopelo strapless y falda voluminosa cubierta de brillo, pensada para la gran entrada al salón.',
+    fabrics: ['Tul glitter', 'Terciopelo en el corpiño'],
+    details: ['Corpiño de terciopelo strapless', 'Falda amplia con brillo en degradé', 'Silueta princesa voluminosa']
+  },
+  {
+    id: 'q10',
+    name: 'Delfina',
+    price: 410000,
+    imageUrl: '/images/quinceañeras/quince0010.png',
+    category: 'fifteenth',
+    collection: 'Quinceañeras Edition',
+    description: 'Vestido blanco de breteles finos con corset de encaje y apliques florales 3D, falda asimétrica de tul en capas para un look etéreo.',
+    fabrics: ['Encaje con apliques 3D', 'Tul suave'],
+    details: ['Corset con breteles finos', 'Falda asimétrica con apliques florales', 'Cola corta en capas']
+  },
+  {
+    id: 'q11',
+    name: 'Agustina',
+    price: 340000,
+    imageUrl: '/images/quinceañeras/quince0011.png',
+    category: 'fifteenth',
+    collection: 'Quinceañeras Edition',
+    description: 'Vestido corto en rosa brillante con breteles anudados en moño y un moño decorativo en la cintura, ideal para una fiesta llena de dulzura.',
+    fabrics: ['Tul glitter', 'Cinta de satén para los moños'],
+    details: ['Breteles con moños decorativos', 'Moño aplicado en la cintura', 'Falda corta con vuelo']
+  },
+  {
+    id: 'q12',
+    name: 'Guadalupe',
+    price: 440000,
+    imageUrl: '/images/quinceañeras/quince0012.png',
+    category: 'fifteenth',
+    collection: 'Quinceañeras Edition',
+    description: 'Conjunto de dos piezas en celeste con crop top de encaje strapless y falda asimétrica de satén con pedrería en degradé.',
+    fabrics: ['Encaje bordado', 'Satén con pedrería en degradé'],
+    details: ['Crop top de encaje strapless', 'Falda hi-lo con pedrería', 'Cintura marcada']
+  },
 
   // Novias
   {
@@ -216,39 +282,116 @@ export const VESTIDOS: Vestido[] = [
     fabrics: ['Encaje bordado', 'Satén de seda', 'Tul para velo'],
     details: ['Escote cuadrado con mangas de encaje', 'Falda amplia con bordado floral', 'Cola catedral a juego con el velo']
   },
+  {
+    id: 'b9',
+    name: 'Rosalie',
+    price: 480000,
+    imageUrl: '/images/novias/novia009.png',
+    category: 'novias',
+    collection: 'Colección Exclusiva',
+    description: 'Vestido de breteles finos con corpiño de encaje floral bordado y falda princesa de tul asimétrica, corta adelante y con cola atrás, para una novia romántica y moderna.',
+    fabrics: ['Encaje floral bordado', 'Tul princesa'],
+    details: ['Escote corazón con breteles finos', 'Falda asimétrica hi-lo', 'Aplicaciones de encaje en la falda']
+  },
+  {
+    id: 'b10',
+    name: 'Vivienne',
+    price: 320000,
+    imageUrl: '/images/novias/novia010.png',
+    category: 'novias',
+    collection: 'Colección Exclusiva',
+    description: 'Mini vestido de novia con cuello alto y mangas acampanadas de encaje, pensado para la ceremonia civil o la fiesta posterior, acompañado de velo corto.',
+    fabrics: ['Encaje floral', 'Satén liviano'],
+    details: ['Cuello alto estilo halter', 'Mangas acampanadas de encaje', 'Falda corta con vuelo']
+  },
 
   // Fiesta Collection
   {
     id: 'fi1',
-    name: 'Amelie',
-    price: 150000,
-    imageUrl: '/images/VestidoAmelie.png',
+    name: 'Bianca',
+    price: 500000,
+    imageUrl: '/images/fiestaColletion/diseño001.png',
     category: 'fiesta-collection',
     collection: 'Fiesta Edition',
-    description: 'Un diseño romántico y atemporal que combina delicadeza y elegancia en cada detalle de su confección.',
-    fabrics: ['Encaje francés', 'Tul bordado', 'Satén de seda'],
-    details: ['Escote corazón', 'Espalda semi-abierta', 'Cola capilla']
+    description: 'Vestido midi off-shoulder en tono champagne con corset bordado en pedrería y falda de tul brillante con dobladillo contrastante.',
+    fabrics: ['Tul glitter', 'Pedrería bordada sobre corset'],
+    details: ['Escote off-shoulder drapeado', 'Corset estructurado con ballenas', 'Falda midi con dobladillo contrastante']
   },
   {
     id: 'fi2',
-    name: 'Juliette',
-    price: 175000,
-    imageUrl: '/images/VestidoAurora.png',
+    name: 'Valeria',
+    price: 480000,
+    imageUrl: '/images/fiestaColletion/diseño002.png',
     category: 'fiesta-collection',
     collection: 'Fiesta Edition',
-    description: 'Silueta moderna de movimiento fluido, pensada para brillar en pista con sofisticación.',
-    fabrics: ['Organza de seda', 'Encaje de Alençon', 'Tul rígido'],
-    details: ['Corpiño bordado a mano', 'Falda con múltiples capas', 'Cierre de botones forrados']
+    description: 'Vestido midi en plata con breteles finos y corpiño bordado en pedrería sobre falda de tul brillante, ideal para una fiesta de gala.',
+    fabrics: ['Tul glitter', 'Pedrería bordada'],
+    details: ['Corpiño bordado con escote corazón', 'Breteles finos', 'Falda midi con vuelo']
   },
   {
     id: 'fi3',
-    name: 'Antoinette',
-    price: 190000,
-    imageUrl: '/images/VestidoVictoria.png',
+    name: 'Gianna',
+    price: 400000,
+    imageUrl: '/images/fiestaColletion/diseño003.png',
     category: 'fiesta-collection',
     collection: 'Fiesta Edition',
-    description: 'Una pieza de inspiración clásica con líneas depuradas y un diseño que resalta la elegancia natural.',
-    fabrics: ['Mikado de seda', 'Encaje de Chantilly', 'Crepe satinado'],
-    details: ['Escote bardot', 'Cintura marcada', 'Falda estructurada con cola']
+    description: 'Jumpsuit negro con apliques de encaje floral 3D en todo el cuerpo y pantalón palazzo cubierto por una capa fluida de tul transparente.',
+    fabrics: ['Encaje floral 3D', 'Tul transparente'],
+    details: ['Breteles finos con escote corazón', 'Pantalón palazzo de tiro alto', 'Bolsillos laterales ocultos']
+  },
+  {
+    id: 'fi4',
+    name: 'Noelia',
+    price: 400000,
+    imageUrl: '/images/fiestaColletion/diseño004.png',
+    category: 'fiesta-collection',
+    collection: 'Fiesta Edition',
+    description: 'Conjunto de dos piezas con crop top de encaje blanco de cuello alto y falda larga de tul malva con cinturón de pedrería.',
+    fabrics: ['Encaje floral', 'Tul liviano'],
+    details: ['Crop top de encaje con cuello alto', 'Cinturón de pedrería en la cintura', 'Falda larga con caída fluida']
+  },
+  {
+    id: 'fi5',
+    name: 'Ophelia',
+    price: 380000,
+    imageUrl: '/images/fiestaColletion/diseño005.png',
+    category: 'fiesta-collection',
+    collection: 'Fiesta Edition',
+    description: 'Conjunto de dos piezas en verde salvia con crop top de escote cuadrado y falda sirena de caída fluida con tajo hi-lo.',
+    fabrics: ['Crepe de seda'],
+    details: ['Crop top con escote cuadrado', 'Falda sirena con tajo hi-lo', 'Cintura alta entallada']
+  },
+  {
+    id: 'fi6',
+    name: 'Renée',
+    price: 350000,
+    imageUrl: '/images/fiestaColletion/diseño006.png',
+    category: 'fiesta-collection',
+    collection: 'Fiesta Edition',
+    description: 'Jumpsuit negro cruzado con escote en V y mangas acampanadas de encaje transparente, ceñido con cinturón a tono.',
+    fabrics: ['Crepe fluido', 'Encaje transparente en mangas'],
+    details: ['Escote cruzado en V', 'Mangas acampanadas de encaje', 'Cinturón anudado a tono']
+  },
+  {
+    id: 'fi7',
+    name: 'Serena',
+    price: 280000,
+    imageUrl: '/images/fiestaColletion/diseño007.png',
+    category: 'fiesta-collection',
+    collection: 'Fiesta Edition',
+    description: 'Vestido midi en bordó con breteles finos y corpiño drapeado sobre falda amplia con vuelo, para una fiesta elegante y cómoda.',
+    fabrics: ['Crepe de seda'],
+    details: ['Corpiño drapeado con breteles finos', 'Falda midi con vuelo', 'Cierre invisible en la espalda']
+  },
+  {
+    id: 'fi8',
+    name: 'Mariana',
+    price: 320000,
+    imageUrl: '/images/fiestaColletion/diseño008.png',
+    category: 'fiesta-collection',
+    collection: 'Fiesta Edition',
+    description: 'Vestido sirena negro con escote drapeado asimétrico off-shoulder y tajo lateral alto, para una silueta envolvente de alto impacto.',
+    fabrics: ['Crepe de seda elastizado'],
+    details: ['Escote drapeado asimétrico', 'Silueta sirena ajustada', 'Tajo lateral alto']
   }
 ];
