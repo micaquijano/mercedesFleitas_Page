@@ -4,12 +4,7 @@
     <h1 class="main-title">Mis Favoritos</h1>
   </header>
 
-  @if (!isLoggedIn()) {
-    <p class="empty-state">
-      Iniciá sesión para ver y guardar tus vestidos favoritos.
-      <a routerLink="/login">Iniciar Sesión</a>
-    </p>
-  } @else if (favoriteVestidos().length === 0) {
+  @if (favoriteVestidos().length === 0) {
     <p class="empty-state">
       Todavía no agregaste vestidos a tus favoritos.
       <a routerLink="/catalog">Ver Catálogo</a>
