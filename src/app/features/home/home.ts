@@ -19,7 +19,7 @@ interface QuickAccessCollection {
 export class Home {
   quickAccessCollections: QuickAccessCollection[] = [
     { title: 'Novias', imageUrl: '/images/BannerNovias.png', link: '/novias' },
-    { title: 'Quinceañeras', imageUrl: '/images/BannerQuinceañearas.png', link: '/fifteenth' },
+    { title: 'Quinceañeras', imageUrl: '/images/BannerQuinceaneras.png', link: '/fifteenth' },
     { title: 'Fiesta Collection', imageUrl: '/images/BannerVestidoFiesta.png', link: '/fiesta-collection' },
   ];
 
