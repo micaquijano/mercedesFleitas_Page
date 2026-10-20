@@ -11,11 +11,6 @@ export const routes: Routes = [
     loadComponent: () => import('./features/home/home').then(m => m.Home)
   },
   {
-    path: 'catalog',
-    loadComponent: () => import('./features/catalog-view/catalog-view').then(m => m.CatalogView),
-    data: { category: 'collection-2026' }
-  },
-  {
     path: 'novias',
     loadComponent: () => import('./features/catalog-view/catalog-view').then(m => m.CatalogView),
     data: { category: 'novias' }

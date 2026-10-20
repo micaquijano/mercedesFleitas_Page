@@ -40,7 +40,7 @@ export class ProductDetailComponent implements OnInit {
       this.location.back();
       return;
     }
-    this.router.navigateByUrl('/catalog');
+    this.router.navigateByUrl('/home');
   }
 
   onToggleCart(): void {

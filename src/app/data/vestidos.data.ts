@@ -1,4 +1,4 @@
-export type VestidoCategory = 'collection-2026' | 'fifteenth' | 'novias' | 'fiesta-collection';
+export type VestidoCategory = 'fifteenth' | 'novias' | 'fiesta-collection';
 
 export interface Vestido {
   id: string;
@@ -14,51 +14,12 @@ export interface Vestido {
 }
 
 export const CATEGORY_META: Record<VestidoCategory, { title: string; tag: string; path: string }> = {
-  'collection-2026': { title: 'Collection 2026', tag: 'Nocturne Collection', path: 'collection' },
   fifteenth: { title: 'Quinceañeras', tag: 'Quinceañeras Edition', path: 'fifteenth' },
   novias: { title: 'Novias Collection', tag: 'Colección Exclusiva', path: 'novias' },
   'fiesta-collection': { title: 'Fiesta Collection', tag: 'Fiesta Edition', path: 'fiesta-collection' }
 };
 
 export const VESTIDOS: Vestido[] = [
-  // Collection 2026
-  {
-    id: 'c1',
-    name: 'Aurora',
-    price: 2400,
-    imageUrl: '/images/VestidoAurora.png',
-    category: 'collection-2026',
-    featured: true,
-    collection: 'Nocturne Collection',
-    description: 'Un diseño etéreo de silueta sirena que evoca el romanticismo oscuro. Confeccionado artesanalmente para envolver la figura con gracia dramática.',
-    fabrics: ['Seda rasada premium', 'Encaje de Chantilly importado', 'Tul nupcial ultra suave'],
-    details: ['Mangas de encaje desmontables', 'Bustier estructurado con ballenas', 'Cola catedral de 1.5 metros']
-  },
-  {
-    id: 'c2',
-    name: 'Amelie',
-    price: 3100,
-    imageUrl: '/images/VestidoAmelie.png',
-    category: 'collection-2026',
-    featured: true,
-    collection: 'Nocturne Collection',
-    description: 'Una pieza escultural de hombros caídos que celebra las líneas puras y el minimalismo sofisticado, ideal para una presencia imponente y memorable.',
-    fabrics: ['Crepe de seda pesado', 'Forrería de satén elastizado'],
-    details: ['Escote drapeado fluido', 'Ajuste corsetero interno invisible', 'Cierre oculto en espalda']
-  },
-  {
-    id: 'c3',
-    name: 'Victoria',
-    price: 4200,
-    imageUrl: '/images/VestidoVictoria.png',
-    category: 'collection-2026',
-    featured: true,
-    collection: 'Atelier 2026',
-    description: 'Inspirado en la dualidad y el misterio teatral. Destaca por su impactante tajo lateral y un delicado juego de cintas entrelazadas en la espalda descubierta.',
-    fabrics: ['Raso de seda italiano', 'Gasa de seda flotante'],
-    details: ['Espalda abierta con lazo regulable', 'Tajo profundo estilizado', 'Falda con movimiento etéreo']
-  },
-
   // Quinceañeras
   {
     id: 'q1',
@@ -66,6 +27,7 @@ export const VESTIDOS: Vestido[] = [
     price: 450000,
     imageUrl: '/images/quinceaneras/quince0001.png',
     category: 'fifteenth',
+    featured: true,
     collection: 'Quinceañeras Edition',
     description: 'Corset de bordado floral en tono celeste sobre tul ilusión, con falda brillante de tajo pronunciado para una entrada llena de movimiento.',
     fabrics: ['Tul glitter', 'Encaje floral bordado', 'Bustier con ballenas'],
@@ -222,6 +184,7 @@ export const VESTIDOS: Vestido[] = [
     price: 400000,
     imageUrl: '/images/novias/novia003.png',
     category: 'novias',
+    featured: true,
     collection: 'Colección Exclusiva',
     description: 'Conjunto de blazer estructurado y pantalón sastre sobre body de encaje, para la novia moderna que reinterpreta el traje de ceremonia clásico.',
     fabrics: ['Crepe estructurado', 'Encaje floral'],
@@ -323,6 +286,7 @@ export const VESTIDOS: Vestido[] = [
     price: 480000,
     imageUrl: '/images/fiestaColletion/diseno002.png',
     category: 'fiesta-collection',
+    featured: true,
     collection: 'Fiesta Edition',
     description: 'Vestido midi en plata con breteles finos y corpiño bordado en pedrería sobre falda de tul brillante, ideal para una fiesta de gala.',
     fabrics: ['Tul glitter', 'Pedrería bordada'],
