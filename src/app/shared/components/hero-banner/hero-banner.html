@@ -6,5 +6,5 @@
     <h1 class="hero-title">{{ title() }}</h1>
   </div>
 
-  <a class="hero-cta" [routerLink]="ctaLink()">{{ ctaLabel() }}</a>
+  <a class="hero-cta" [routerLink]="ctaLink()" [fragment]="ctaFragment()">{{ ctaLabel() }}</a>
 </section>

@@ -24,6 +24,16 @@ $font-serif: 'Playfair Display', serif;
   padding: 80px 8%;
 }
 
+.quick-access {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 1024px) {
+  .quick-access {
+    scroll-margin-top: 65px;
+  }
+}
+
 .how-it-works {
   border-bottom: 1px solid #1a1a1a;
 }
