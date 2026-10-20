@@ -12,5 +12,5 @@ export class HeroBannerComponent {
   subtitle = input<string>('');
   imageUrl = input.required<string>();
   ctaLabel = input<string>('Explorar Colección');
-  ctaLink = input<string>('/catalog');
+  ctaLink = input<string>('/home');
 }
